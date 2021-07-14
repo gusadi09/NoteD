@@ -15,6 +15,7 @@
 		EC6234B8269F0B150097F1DD /* NoteD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EC6234B6269F0B150097F1DD /* NoteD.xcdatamodeld */; };
 		EC6234C3269F0B150097F1DD /* NoteDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6234C2269F0B150097F1DD /* NoteDTests.swift */; };
 		EC6234CE269F0B150097F1DD /* NoteDUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6234CD269F0B150097F1DD /* NoteDUITests.swift */; };
+		EC6234DF269F0DCE0097F1DD /* NoteCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6234DE269F0DCE0097F1DD /* NoteCellView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		EC6234C9269F0B150097F1DD /* NoteDUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NoteDUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC6234CD269F0B150097F1DD /* NoteDUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDUITests.swift; sourceTree = "<group>"; };
 		EC6234CF269F0B150097F1DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC6234DE269F0DCE0097F1DD /* NoteCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCellView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,12 +101,13 @@
 		EC6234AA269F0B140097F1DD /* NoteD */ = {
 			isa = PBXGroup;
 			children = (
+				EC6234EC269F0E0D0097F1DD /* ViewModel */,
+				EC6234EB269F0E030097F1DD /* Model */,
 				EC6234AB269F0B140097F1DD /* NoteDApp.swift */,
-				EC6234AD269F0B140097F1DD /* ContentView.swift */,
+				EC6234E3269F0DE30097F1DD /* View */,
 				EC6234AF269F0B150097F1DD /* Assets.xcassets */,
-				EC6234B4269F0B150097F1DD /* Persistence.swift */,
+				EC6234E7269F0DF70097F1DD /* CoreData */,
 				EC6234B9269F0B150097F1DD /* Info.plist */,
-				EC6234B6269F0B150097F1DD /* NoteD.xcdatamodeld */,
 				EC6234B1269F0B150097F1DD /* Preview Content */,
 			);
 			path = NoteD;
@@ -136,6 +139,38 @@
 			path = NoteDUITests;
 			sourceTree = "<group>";
 		};
+		EC6234E3269F0DE30097F1DD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EC6234AD269F0B140097F1DD /* ContentView.swift */,
+				EC6234DE269F0DCE0097F1DD /* NoteCellView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EC6234E7269F0DF70097F1DD /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				EC6234B4269F0B150097F1DD /* Persistence.swift */,
+				EC6234B6269F0B150097F1DD /* NoteD.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		EC6234EB269F0E030097F1DD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EC6234EC269F0E0D0097F1DD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -152,6 +187,8 @@
 			dependencies = (
 			);
 			name = NoteD;
+			packageProductDependencies = (
+			);
 			productName = NoteD;
 			productReference = EC6234A8269F0B140097F1DD /* NoteD.app */;
 			productType = "com.apple.product-type.application";
@@ -223,6 +260,8 @@
 				Base,
 			);
 			mainGroup = EC62349F269F0B140097F1DD;
+			packageReferences = (
+			);
 			productRefGroup = EC6234A9269F0B140097F1DD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -268,6 +307,7 @@
 				EC6234B8269F0B150097F1DD /* NoteD.xcdatamodeld in Sources */,
 				EC6234B5269F0B150097F1DD /* Persistence.swift in Sources */,
 				EC6234AE269F0B140097F1DD /* ContentView.swift in Sources */,
+				EC6234DF269F0DCE0097F1DD /* NoteCellView.swift in Sources */,
 				EC6234AC269F0B140097F1DD /* NoteDApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -430,7 +470,7 @@
 				DEVELOPMENT_TEAM = 6M5M727687;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = NoteD/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -452,7 +492,7 @@
 				DEVELOPMENT_TEAM = 6M5M727687;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = NoteD/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

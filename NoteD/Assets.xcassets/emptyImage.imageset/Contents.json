@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "Humaaans - 3 Characters.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "Humaaans - 3 Characters@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "Humaaans - 3 Characters@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
