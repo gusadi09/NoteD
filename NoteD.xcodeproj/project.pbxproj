@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC4243CD269FD4EB004C3DB3 /* NoteTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4243CC269FD4EB004C3DB3 /* NoteTextView.swift */; };
+		EC4243D2269FE290004C3DB3 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4243D1269FE290004C3DB3 /* CalendarView.swift */; };
+		EC4243D8269FE39A004C3DB3 /* CustomPresentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4243D7269FE39A004C3DB3 /* CustomPresentViewController.swift */; };
 		EC6234AC269F0B140097F1DD /* NoteDApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6234AB269F0B140097F1DD /* NoteDApp.swift */; };
 		EC6234AE269F0B140097F1DD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6234AD269F0B140097F1DD /* ContentView.swift */; };
 		EC6234B0269F0B150097F1DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC6234AF269F0B150097F1DD /* Assets.xcassets */; };
@@ -36,6 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EC4243CC269FD4EB004C3DB3 /* NoteTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTextView.swift; sourceTree = "<group>"; };
+		EC4243D1269FE290004C3DB3 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		EC4243D7269FE39A004C3DB3 /* CustomPresentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPresentViewController.swift; sourceTree = "<group>"; };
 		EC6234A8269F0B140097F1DD /* NoteD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoteD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC6234AB269F0B140097F1DD /* NoteDApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDApp.swift; sourceTree = "<group>"; };
 		EC6234AD269F0B140097F1DD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -78,6 +84,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EC4243D6269FE382004C3DB3 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				EC4243D7269FE39A004C3DB3 /* CustomPresentViewController.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		EC62349F269F0B140097F1DD = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +115,7 @@
 		EC6234AA269F0B140097F1DD /* NoteD */ = {
 			isa = PBXGroup;
 			children = (
+				EC4243D6269FE382004C3DB3 /* Component */,
 				EC6234EC269F0E0D0097F1DD /* ViewModel */,
 				EC6234EB269F0E030097F1DD /* Model */,
 				EC6234AB269F0B140097F1DD /* NoteDApp.swift */,
@@ -144,6 +159,8 @@
 			children = (
 				EC6234AD269F0B140097F1DD /* ContentView.swift */,
 				EC6234DE269F0DCE0097F1DD /* NoteCellView.swift */,
+				EC4243CC269FD4EB004C3DB3 /* NoteTextView.swift */,
+				EC4243D1269FE290004C3DB3 /* CalendarView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -305,8 +322,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC6234B8269F0B150097F1DD /* NoteD.xcdatamodeld in Sources */,
+				EC4243D2269FE290004C3DB3 /* CalendarView.swift in Sources */,
+				EC4243CD269FD4EB004C3DB3 /* NoteTextView.swift in Sources */,
 				EC6234B5269F0B150097F1DD /* Persistence.swift in Sources */,
 				EC6234AE269F0B140097F1DD /* ContentView.swift in Sources */,
+				EC4243D8269FE39A004C3DB3 /* CustomPresentViewController.swift in Sources */,
 				EC6234DF269F0DCE0097F1DD /* NoteCellView.swift in Sources */,
 				EC6234AC269F0B140097F1DD /* NoteDApp.swift in Sources */,
 			);

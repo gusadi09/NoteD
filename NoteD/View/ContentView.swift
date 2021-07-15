@@ -38,7 +38,11 @@ struct ContentView: View {
                 } else {
                     List {
                         ForEach(items) { note in
-                            NoteCellView()
+                            NavigationLink(
+                                destination: NoteTextView(),
+                                label: {
+                                    NoteCellView()
+                                })
                         }
                         .onDelete(perform: { indexSet in
                             deleteItems(offsets: indexSet)
@@ -50,7 +54,7 @@ struct ContentView: View {
                 }
                 
                 Button(action: {
-                    
+                    addItem()
                 }, label: {
                     HStack {
                         Image(systemName: "square.and.pencil")
@@ -67,8 +71,10 @@ struct ContentView: View {
                 })
             }
             
+            
             .navigationTitle("Note & Daily Journal")
         }
+        .accentColor(Color("royalBlue"))
     }
     
     private func addItem() {

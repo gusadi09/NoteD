@@ -29,13 +29,10 @@ struct NoteCellView: View {
                     .lineLimit(1)
                 
             }
-            .padding()
             .foregroundColor(Color("textColor"))
             
             Spacer()
         }
-        .background(Color("orange"))
-        .cornerRadius(20)
     }
 }
 
