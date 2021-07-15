@@ -14,7 +14,9 @@
 		EC4243F526A010EC004C3DB3 /* TitleFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4243F426A010EC004C3DB3 /* TitleFieldView.swift */; };
 		EC4243FD26A01325004C3DB3 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4243FC26A01325004C3DB3 /* TextFieldView.swift */; };
 		EC42449C26A022EF004C3DB3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EC42449E26A022EF004C3DB3 /* Localizable.strings */; };
-		EC4244A426A02301004C3DB3 /* LocalizationConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4244A326A02301004C3DB3 /* LocalizationConst.swift */; };
+		EC4244AD26A03FE0004C3DB3 /* LanguageEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4244AC26A03FE0004C3DB3 /* LanguageEnum.swift */; };
+		EC4244B326A0400D004C3DB3 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4244B226A0400D004C3DB3 /* StringExtension.swift */; };
+		EC4244BB26A04093004C3DB3 /* LocalizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4244BA26A04093004C3DB3 /* LocalizationService.swift */; };
 		EC6234AC269F0B140097F1DD /* NoteDApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6234AB269F0B140097F1DD /* NoteDApp.swift */; };
 		EC6234AE269F0B140097F1DD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6234AD269F0B140097F1DD /* ContentView.swift */; };
 		EC6234B0269F0B150097F1DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC6234AF269F0B150097F1DD /* Assets.xcassets */; };
@@ -24,6 +26,7 @@
 		EC6234C3269F0B150097F1DD /* NoteDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6234C2269F0B150097F1DD /* NoteDTests.swift */; };
 		EC6234CE269F0B150097F1DD /* NoteDUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6234CD269F0B150097F1DD /* NoteDUITests.swift */; };
 		EC6234DF269F0DCE0097F1DD /* NoteCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6234DE269F0DCE0097F1DD /* NoteCellView.swift */; };
+		EC853C5826A06B1000245B5F /* NoteEditTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC853C5726A06B1000245B5F /* NoteEditTextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +55,9 @@
 		EC4243FC26A01325004C3DB3 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
 		EC42449D26A022EF004C3DB3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EC4244A226A022F2004C3DB3 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
-		EC4244A326A02301004C3DB3 /* LocalizationConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationConst.swift; sourceTree = "<group>"; };
+		EC4244AC26A03FE0004C3DB3 /* LanguageEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageEnum.swift; sourceTree = "<group>"; };
+		EC4244B226A0400D004C3DB3 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		EC4244BA26A04093004C3DB3 /* LocalizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationService.swift; sourceTree = "<group>"; };
 		EC6234A8269F0B140097F1DD /* NoteD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoteD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC6234AB269F0B140097F1DD /* NoteDApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDApp.swift; sourceTree = "<group>"; };
 		EC6234AD269F0B140097F1DD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -68,6 +73,7 @@
 		EC6234CD269F0B150097F1DD /* NoteDUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDUITests.swift; sourceTree = "<group>"; };
 		EC6234CF269F0B150097F1DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC6234DE269F0DCE0097F1DD /* NoteCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCellView.swift; sourceTree = "<group>"; };
+		EC853C5726A06B1000245B5F /* NoteEditTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteEditTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,9 +115,18 @@
 			isa = PBXGroup;
 			children = (
 				EC42449E26A022EF004C3DB3 /* Localizable.strings */,
-				EC4244A326A02301004C3DB3 /* LocalizationConst.swift */,
+				EC4244AC26A03FE0004C3DB3 /* LanguageEnum.swift */,
+				EC4244BA26A04093004C3DB3 /* LocalizationService.swift */,
 			);
 			path = Localizable;
+			sourceTree = "<group>";
+		};
+		EC4244B126A03FF9004C3DB3 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				EC4244B226A0400D004C3DB3 /* StringExtension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		EC62349F269F0B140097F1DD = {
@@ -137,6 +152,7 @@
 		EC6234AA269F0B140097F1DD /* NoteD */ = {
 			isa = PBXGroup;
 			children = (
+				EC4244B126A03FF9004C3DB3 /* Extension */,
 				EC42448A26A0227D004C3DB3 /* Localizable */,
 				EC6234AB269F0B140097F1DD /* NoteDApp.swift */,
 				EC4243D6269FE382004C3DB3 /* Component */,
@@ -183,6 +199,7 @@
 				EC4243CC269FD4EB004C3DB3 /* NoteTextView.swift */,
 				EC4243D1269FE290004C3DB3 /* CalendarView.swift */,
 				EC4243DF26A00038004C3DB3 /* SettingView.swift */,
+				EC853C5726A06B1000245B5F /* NoteEditTextView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -331,6 +348,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC853C5826A06B1000245B5F /* NoteEditTextView.swift in Sources */,
 				EC4243F526A010EC004C3DB3 /* TitleFieldView.swift in Sources */,
 				EC4243FD26A01325004C3DB3 /* TextFieldView.swift in Sources */,
 				EC6234B8269F0B150097F1DD /* NoteD.xcdatamodeld in Sources */,
@@ -339,9 +357,11 @@
 				EC4243E026A00038004C3DB3 /* SettingView.swift in Sources */,
 				EC6234B5269F0B150097F1DD /* Persistence.swift in Sources */,
 				EC6234AE269F0B140097F1DD /* ContentView.swift in Sources */,
+				EC4244B326A0400D004C3DB3 /* StringExtension.swift in Sources */,
+				EC4244AD26A03FE0004C3DB3 /* LanguageEnum.swift in Sources */,
 				EC4243D8269FE39A004C3DB3 /* CustomPresentViewController.swift in Sources */,
+				EC4244BB26A04093004C3DB3 /* LocalizationService.swift in Sources */,
 				EC6234DF269F0DCE0097F1DD /* NoteCellView.swift in Sources */,
-				EC4244A426A02301004C3DB3 /* LocalizationConst.swift in Sources */,
 				EC6234AC269F0B140097F1DD /* NoteDApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,12 +10,16 @@ import CoreData
 
 struct ContentView: View {
     @State var isActive = false
+    @State var isActiveRoot = false
+    @State var isActiveSec = false
+    @AppStorage("language")
+    private var language = LocalizationService.shared.language
     
     @Environment(\.managedObjectContext) private var viewContext
     
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Note.date, ascending: true)],
-    animation: .default)
+        sortDescriptors: [],
+        animation: .default)
     private var items: FetchedResults<Note>
     
     var body: some View {
@@ -25,12 +29,14 @@ struct ContentView: View {
                     HStack {
                         Spacer()
                         
-                        VStack {
+                        VStack(alignment: .center) {
                             Image("emptyImage")
                                 .resizable()
                                 .frame(width: 200, height: 160, alignment: .center)
-                            Text("You haven't created any notes yet")
+                            Text("home_emptytext".localized(language))
                                 .font(.system(size: 22, weight: .semibold, design: .rounded))
+                                .padding(.horizontal, 30)
+                                .multilineTextAlignment(.center)
                             Spacer()
                         }
                         .padding(.top, 180)
@@ -39,9 +45,9 @@ struct ContentView: View {
                     }
                 } else {
                     List {
-                        ForEach(items) { note in
+                        ForEach(items, id: \.id) { note in
                             NavigationLink(
-                                destination: NoteTextView(date: note.date ?? Date(), viewContext: self.viewContext, text: note.title ?? "Title", desc: note.detail ?? "", isActive: $isActive),
+                                destination: NoteEditTextView(date: note.date ?? Date(), note: note, text: note.title ?? "Title", desc: note.detail ?? ""),
                                 label: {
                                     NoteCellView(items: note)
                                 })
@@ -53,10 +59,11 @@ struct ContentView: View {
                         
                     }
                     .listStyle(InsetGroupedListStyle())
+                    
                 }
                 
                 NavigationLink(
-                    destination: NoteTextView( isActive: self.$isActive),
+                    destination: NoteTextView(isActive: self.$isActive),
                     isActive: $isActive,
                     label: {
                         HStack {
@@ -73,21 +80,23 @@ struct ContentView: View {
                         .padding()
                     })
                     .isDetailLink(true)
-                
+
             }
             
             .toolbar(content: {
                 HStack {
                     EditButton()
                     NavigationLink(
-                        destination: SettingView(),
+                        destination: SettingView(isActive: $isActiveRoot),
+                        isActive: $isActiveRoot,
                         label: {
                             Image(systemName: "gear")
                         })
                         .isDetailLink(true)
                 }
             })
-            .navigationTitle("\(LocalizationConst.Shared.appstitle.localized())")
+            .navigationTitle("shared_appstitle".localized(language))
+            
         }
         .accentColor(Color("royalBlue"))
     }
@@ -104,6 +113,7 @@ struct ContentView: View {
             }
         }
     }
+    
 }
 
 private let itemFormatter: DateFormatter = {

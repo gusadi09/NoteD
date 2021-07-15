@@ -6,4 +6,7 @@
   
 */
 
-"shared_appstitle" = "Catatan & Jurnal Harian";
+"shared_appstitle" = "Catatan";
+"shared_titlesetting" = "Pengaturan";
+"home_emptytext" = "Kamu belum membuat catatan apapun";
+

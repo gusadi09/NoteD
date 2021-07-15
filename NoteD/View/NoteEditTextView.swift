@@ -1,5 +1,5 @@
 //
-//  NoteTextView.swift
+//  NoteEditTextView.swift
 //  NoteD
 //
 //  Created by Gus Adi on 15/07/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct NoteTextView: View {
+struct NoteEditTextView: View {
     @State var date = Date()
     
     @AppStorage("language")
@@ -19,6 +19,8 @@ struct NoteTextView: View {
         self.viewControllerHolder.value
     }
     
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     @Environment(\.managedObjectContext) private var viewContext
     
     @FetchRequest(
@@ -26,11 +28,11 @@ struct NoteTextView: View {
         animation: .default)
     private var items: FetchedResults<Note>
     
+    @State var note = Note()
     @State var text = "Title"
     @State var desc = ""
     @State private var textHeight : CGFloat = 45
     @State private var descTextHeight : CGFloat = 45
-    @Binding var isActive: Bool
     
     var body: some View {
         ScrollView {
@@ -82,8 +84,8 @@ struct NoteTextView: View {
         }
         .toolbar(content: {
             Button(action: {
-                addItem()
-                self.isActive = false
+                updateItems(note: note, title: text, date: date, desc: desc)
+                self.presentationMode.wrappedValue.dismiss()
             }, label: {
                 Text("Save")
             })
@@ -93,23 +95,25 @@ struct NoteTextView: View {
         
     }
     
-    func addItem() {
-        withAnimation {
-            let newItem = Note(context: viewContext)
-            newItem.id = UUID()
-            newItem.title = text
-            newItem.date = date
-            newItem.detail = desc
-            
+    func updateItems(note: Note, title: String, date: Date, desc: String) {
+        let newTitle = title
+        let newDate = date
+        let newDesc = desc
+        
+        viewContext.performAndWait {
+            note.title = newTitle
+            note.date = newDate
+            note.detail = newDesc
             do {
                 try viewContext.save()
             } catch {
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                fatalError()
             }
+            
         }
     }
 }
+
 
 private let itemFormatter: DateFormatter = {
     let formatter = DateFormatter()
@@ -118,8 +122,8 @@ private let itemFormatter: DateFormatter = {
     return formatter
 }()
 
-struct NoteTextView_Previews: PreviewProvider {
+struct NoteEditTextView_Previews: PreviewProvider {
     static var previews: some View {
-        NoteTextView(isActive: .constant(true))
+        NoteEditTextView()
     }
 }

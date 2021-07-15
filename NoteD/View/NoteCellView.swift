@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct NoteCellView: View {
-    var items: Note?
+    @ObservedObject var items: Note
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 8) {
-                Text("\(items?.title ?? "Title")")
+                Text("\(items.title ?? "Title")")
                     .font(.system(size: 28, weight: .bold, design: .rounded))
                     .lineLimit(1)
                 
-                Text("\(itemFormatter.string(from: items?.date ?? Date()))")
+                Text("\(itemFormatter.string(from: items.date ?? Date()))")
                     .font(.system(size: 12))
                     .padding(5)
                     .overlay(
@@ -25,7 +25,7 @@ struct NoteCellView: View {
                     )
                 
                 
-                Text("\(items?.detail ?? "")")
+                Text("\(items.detail ?? "")")
                     .font(.system(size: 18))
                     .lineLimit(1)
                 
@@ -46,6 +46,6 @@ private let itemFormatter: DateFormatter = {
 
 struct NoteCellView_Previews: PreviewProvider {
     static var previews: some View {
-        NoteCellView()
+        NoteCellView(items: Note())
     }
 }
