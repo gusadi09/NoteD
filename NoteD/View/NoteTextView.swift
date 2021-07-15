@@ -16,11 +16,27 @@ struct NoteTextView: View {
         self.viewControllerHolder.value
     }
     
+    @State var viewContext = PersistenceController.shared.container.viewContext
+    
+    @State var text = "Title"
+    @State var desc = ""
+    @State private var textHeight : CGFloat = 45
+    @State private var descTextHeight : CGFloat = 45
+    @Binding var isActive: Bool
+    
     var body: some View {
         ScrollView {
             LazyVStack(alignment: .leading) {
-                VStack {
-                    
+                
+                ZStack {
+                    TitleFieldView(text: $text, heightToTransmit: $textHeight)
+                        .frame(height: textHeight)
+                        .accentColor(Color("textColor"))
+                }
+                .padding(.top, 20)
+                .padding(.horizontal)
+                
+                VStack(alignment: .leading) {
                     
                     
                     Button(action: {
@@ -31,7 +47,7 @@ struct NoteTextView: View {
                         }
                     }, label: {
                         Text("\(itemFormatter.string(from: date))")
-                            .font(.system(size: 17, weight: .semibold, design: .rounded))
+                            .font(.system(size: 14, weight: .semibold, design: .rounded))
                             .foregroundColor(.black)
                             .padding(5)
                             .overlay(
@@ -39,18 +55,50 @@ struct NoteTextView: View {
                                     .stroke(Color("textColor"), lineWidth: 1)
                             )
                     })
+                    .padding(.vertical, 2)
+                    
+                    
                 }
-                .padding()
+                .padding(.horizontal)
+                
+                ZStack {
+                    
+                    TextFieldView(text: $desc, heightToTransmit: $descTextHeight)
+                        .frame(height: textHeight)
+                        .accentColor(Color("textColor"))
+                                        
+                }
+                .padding(.horizontal)
+                .padding(.bottom, 30)
             }
         }
         .toolbar(content: {
-            Button(action: {}, label: {
+            Button(action: {
+                addItem()
+                self.isActive = false
+            }, label: {
                 Text("Save")
             })
         })
         
         .navigationBarTitleDisplayMode(.inline)
         
+    }
+    
+    func addItem() {
+        withAnimation {
+            let newItem = Note(context: viewContext)
+            newItem.title = text
+            newItem.date = date
+            newItem.detail = desc
+
+            do {
+                try viewContext.save()
+            } catch {
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            }
+        }
     }
 }
 
@@ -63,6 +111,6 @@ private let itemFormatter: DateFormatter = {
 
 struct NoteTextView_Previews: PreviewProvider {
     static var previews: some View {
-        NoteTextView()
+        NoteTextView(isActive: .constant(true))
     }
 }

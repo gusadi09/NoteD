@@ -10,6 +10,11 @@
 		EC4243CD269FD4EB004C3DB3 /* NoteTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4243CC269FD4EB004C3DB3 /* NoteTextView.swift */; };
 		EC4243D2269FE290004C3DB3 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4243D1269FE290004C3DB3 /* CalendarView.swift */; };
 		EC4243D8269FE39A004C3DB3 /* CustomPresentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4243D7269FE39A004C3DB3 /* CustomPresentViewController.swift */; };
+		EC4243E026A00038004C3DB3 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4243DF26A00038004C3DB3 /* SettingView.swift */; };
+		EC4243F526A010EC004C3DB3 /* TitleFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4243F426A010EC004C3DB3 /* TitleFieldView.swift */; };
+		EC4243FD26A01325004C3DB3 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4243FC26A01325004C3DB3 /* TextFieldView.swift */; };
+		EC42449C26A022EF004C3DB3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EC42449E26A022EF004C3DB3 /* Localizable.strings */; };
+		EC4244A426A02301004C3DB3 /* LocalizationConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4244A326A02301004C3DB3 /* LocalizationConst.swift */; };
 		EC6234AC269F0B140097F1DD /* NoteDApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6234AB269F0B140097F1DD /* NoteDApp.swift */; };
 		EC6234AE269F0B140097F1DD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6234AD269F0B140097F1DD /* ContentView.swift */; };
 		EC6234B0269F0B150097F1DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC6234AF269F0B150097F1DD /* Assets.xcassets */; };
@@ -42,6 +47,12 @@
 		EC4243CC269FD4EB004C3DB3 /* NoteTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTextView.swift; sourceTree = "<group>"; };
 		EC4243D1269FE290004C3DB3 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		EC4243D7269FE39A004C3DB3 /* CustomPresentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPresentViewController.swift; sourceTree = "<group>"; };
+		EC4243DF26A00038004C3DB3 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		EC4243F426A010EC004C3DB3 /* TitleFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleFieldView.swift; sourceTree = "<group>"; };
+		EC4243FC26A01325004C3DB3 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
+		EC42449D26A022EF004C3DB3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EC4244A226A022F2004C3DB3 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EC4244A326A02301004C3DB3 /* LocalizationConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationConst.swift; sourceTree = "<group>"; };
 		EC6234A8269F0B140097F1DD /* NoteD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoteD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC6234AB269F0B140097F1DD /* NoteDApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDApp.swift; sourceTree = "<group>"; };
 		EC6234AD269F0B140097F1DD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -88,8 +99,19 @@
 			isa = PBXGroup;
 			children = (
 				EC4243D7269FE39A004C3DB3 /* CustomPresentViewController.swift */,
+				EC4243F426A010EC004C3DB3 /* TitleFieldView.swift */,
+				EC4243FC26A01325004C3DB3 /* TextFieldView.swift */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		EC42448A26A0227D004C3DB3 /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				EC42449E26A022EF004C3DB3 /* Localizable.strings */,
+				EC4244A326A02301004C3DB3 /* LocalizationConst.swift */,
+			);
+			path = Localizable;
 			sourceTree = "<group>";
 		};
 		EC62349F269F0B140097F1DD = {
@@ -115,13 +137,12 @@
 		EC6234AA269F0B140097F1DD /* NoteD */ = {
 			isa = PBXGroup;
 			children = (
-				EC4243D6269FE382004C3DB3 /* Component */,
-				EC6234EC269F0E0D0097F1DD /* ViewModel */,
-				EC6234EB269F0E030097F1DD /* Model */,
+				EC42448A26A0227D004C3DB3 /* Localizable */,
 				EC6234AB269F0B140097F1DD /* NoteDApp.swift */,
+				EC4243D6269FE382004C3DB3 /* Component */,
+				EC6234E7269F0DF70097F1DD /* Model */,
 				EC6234E3269F0DE30097F1DD /* View */,
 				EC6234AF269F0B150097F1DD /* Assets.xcassets */,
-				EC6234E7269F0DF70097F1DD /* CoreData */,
 				EC6234B9269F0B150097F1DD /* Info.plist */,
 				EC6234B1269F0B150097F1DD /* Preview Content */,
 			);
@@ -161,31 +182,18 @@
 				EC6234DE269F0DCE0097F1DD /* NoteCellView.swift */,
 				EC4243CC269FD4EB004C3DB3 /* NoteTextView.swift */,
 				EC4243D1269FE290004C3DB3 /* CalendarView.swift */,
+				EC4243DF26A00038004C3DB3 /* SettingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		EC6234E7269F0DF70097F1DD /* CoreData */ = {
+		EC6234E7269F0DF70097F1DD /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				EC6234B4269F0B150097F1DD /* Persistence.swift */,
 				EC6234B6269F0B150097F1DD /* NoteD.xcdatamodeld */,
 			);
-			path = CoreData;
-			sourceTree = "<group>";
-		};
-		EC6234EB269F0E030097F1DD /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		EC6234EC269F0E0D0097F1DD /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,6 +283,7 @@
 			knownRegions = (
 				en,
 				Base,
+				id,
 			);
 			mainGroup = EC62349F269F0B140097F1DD;
 			packageReferences = (
@@ -296,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC6234B3269F0B150097F1DD /* Preview Assets.xcassets in Resources */,
+				EC42449C26A022EF004C3DB3 /* Localizable.strings in Resources */,
 				EC6234B0269F0B150097F1DD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -321,13 +331,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC4243F526A010EC004C3DB3 /* TitleFieldView.swift in Sources */,
+				EC4243FD26A01325004C3DB3 /* TextFieldView.swift in Sources */,
 				EC6234B8269F0B150097F1DD /* NoteD.xcdatamodeld in Sources */,
 				EC4243D2269FE290004C3DB3 /* CalendarView.swift in Sources */,
 				EC4243CD269FD4EB004C3DB3 /* NoteTextView.swift in Sources */,
+				EC4243E026A00038004C3DB3 /* SettingView.swift in Sources */,
 				EC6234B5269F0B150097F1DD /* Persistence.swift in Sources */,
 				EC6234AE269F0B140097F1DD /* ContentView.swift in Sources */,
 				EC4243D8269FE39A004C3DB3 /* CustomPresentViewController.swift in Sources */,
 				EC6234DF269F0DCE0097F1DD /* NoteCellView.swift in Sources */,
+				EC4244A426A02301004C3DB3 /* LocalizationConst.swift in Sources */,
 				EC6234AC269F0B140097F1DD /* NoteDApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,6 +376,18 @@
 			targetProxy = EC6234CA269F0B150097F1DD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EC42449E26A022EF004C3DB3 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EC42449D26A022EF004C3DB3 /* en */,
+				EC4244A226A022F2004C3DB3 /* id */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		EC6234D0269F0B150097F1DD /* Debug */ = {
@@ -415,7 +441,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -470,7 +496,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

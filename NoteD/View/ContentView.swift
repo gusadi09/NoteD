@@ -9,11 +9,13 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
+    @State var isActive = false
+    
     @Environment(\.managedObjectContext) private var viewContext
     
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Note.title, ascending: true)],
-        animation: .default)
+        sortDescriptors: [NSSortDescriptor(keyPath: \Note.date, ascending: true)],
+    animation: .default)
     private var items: FetchedResults<Note>
     
     var body: some View {
@@ -39,9 +41,9 @@ struct ContentView: View {
                     List {
                         ForEach(items) { note in
                             NavigationLink(
-                                destination: NoteTextView(),
+                                destination: NoteTextView(date: note.date ?? Date(), viewContext: self.viewContext, text: note.title ?? "Title", desc: note.detail ?? "", isActive: $isActive),
                                 label: {
-                                    NoteCellView()
+                                    NoteCellView(items: note)
                                 })
                         }
                         .onDelete(perform: { indexSet in
@@ -53,55 +55,50 @@ struct ContentView: View {
                     .listStyle(InsetGroupedListStyle())
                 }
                 
-                Button(action: {
-                    addItem()
-                }, label: {
-                    HStack {
-                        Image(systemName: "square.and.pencil")
-                            .resizable()
-                            .padding(3)
-                            .frame(width: 40, height: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                            .padding()
-                            .foregroundColor(.white)
-                    }
-                    .background(Color("royalBlue"))
-                    .clipShape(Circle())
-                    .shadow(color: Color("royalBlue").opacity(0.5), radius: 6, x: 0.0, y: 4)
-                    .padding()
-                })
+                NavigationLink(
+                    destination: NoteTextView( isActive: self.$isActive),
+                    isActive: $isActive,
+                    label: {
+                        HStack {
+                            Image(systemName: "square.and.pencil")
+                                .resizable()
+                                .padding(3)
+                                .frame(width: 40, height: 40, alignment: .center)
+                                .padding()
+                                .foregroundColor(.white)
+                        }
+                        .background(Color("royalBlue"))
+                        .clipShape(Circle())
+                        .shadow(color: Color("royalBlue").opacity(0.5), radius: 6, x: 0.0, y: 4)
+                        .padding()
+                    })
+                    .isDetailLink(true)
+                
             }
             
-            
-            .navigationTitle("Note & Daily Journal")
+            .toolbar(content: {
+                HStack {
+                    EditButton()
+                    NavigationLink(
+                        destination: SettingView(),
+                        label: {
+                            Image(systemName: "gear")
+                        })
+                        .isDetailLink(true)
+                }
+            })
+            .navigationTitle("\(LocalizationConst.Shared.appstitle.localized())")
         }
         .accentColor(Color("royalBlue"))
     }
     
-    private func addItem() {
-        withAnimation {
-            let newItem = Note(context: viewContext)
-            newItem.title = "test"
-            
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
-    
-    private func deleteItems(offsets: IndexSet) {
+    func deleteItems(offsets: IndexSet) {
         withAnimation {
             offsets.map { items[$0] }.forEach(viewContext.delete)
             
             do {
                 try viewContext.save()
             } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                 let nsError = error as NSError
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
