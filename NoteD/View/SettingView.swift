@@ -6,31 +6,70 @@
 //
 
 import SwiftUI
+import StoreKit
 
 struct SettingView: View {
     @AppStorage("language")
     private var language = LocalizationService.shared.language
     
-    @Binding var isActive: Bool
+    @Environment(\.viewController) private var viewControllerHolder: ViewControllerHolder
+    
+    private var viewController: UIViewController? {
+        self.viewControllerHolder.value
+    }
     
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .center) {
+            
             
             Button {
-                // Step #3
-                LocalizationService.shared.language = .indonesian
-                isActive = false
+                DispatchQueue.main.async {
+                    self.viewController?.present(style: .pageSheet, builder: {
+                        LanguageSettingView()
+                    })
+                }
             } label: {
-                Text("Indonesia")
+                HStack {
+                    Image(systemName: "globe")
+                    Text("setting_lang".localized(language))
+                        .font(.system(size: 18, weight: .semibold, design: .rounded))
+                    Spacer()
+                }
+                .foregroundColor(Color("white"))
+                .padding()
+                .background(Color("royalBlue"))
+                .cornerRadius(15)
+                .shadow(color: Color("royalBlue").opacity(0.4), radius: 10, x: 0.0, y: 4)
             }
+            .padding()
+            
             Button {
-                LocalizationService.shared.language = .english_us
-                isActive = false
+                if let windowScene = UIApplication.shared.windows.first?.windowScene { SKStoreReviewController.requestReview(in: windowScene) }
             } label: {
-                Text("English (US)")
+                HStack {
+                    Image(systemName: "star.fill")
+                    Text("setting_rate".localized(language))
+                        .font(.system(size: 18, weight: .semibold, design: .rounded))
+                    Spacer()
+                }
+                .foregroundColor(Color("white"))
+                .padding()
+                .background(Color("royalBlue"))
+                .cornerRadius(15)
+                .shadow(color: Color("royalBlue").opacity(0.4), radius: 10, x: 0.0, y: 4)
             }
+            .padding(.horizontal)
+            
+            HStack(spacing: 5) {
+                Text("setting_version".localized(language))
+                Text("\(Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String)")
+            }
+            .font(.system(size: 14, weight: .regular, design: .rounded))
+            .foregroundColor(.gray)
+            .padding()
             
             Spacer()
+            
         }
         
         .navigationTitle("shared_titlesetting".localized(language))
@@ -39,6 +78,6 @@ struct SettingView: View {
 
 struct SettingView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingView(isActive: .constant(true))
+        SettingView()
     }
 }

@@ -16,6 +16,7 @@
 		EC4244AD26A03FE0004C3DB3 /* LanguageEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4244AC26A03FE0004C3DB3 /* LanguageEnum.swift */; };
 		EC4244B326A0400D004C3DB3 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4244B226A0400D004C3DB3 /* StringExtension.swift */; };
 		EC4244BB26A04093004C3DB3 /* LocalizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4244BA26A04093004C3DB3 /* LocalizationService.swift */; };
+		EC51966A26A169D700E24444 /* LanguageSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC51966926A169D700E24444 /* LanguageSettingView.swift */; };
 		EC6234AC269F0B140097F1DD /* NoteDApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6234AB269F0B140097F1DD /* NoteDApp.swift */; };
 		EC6234AE269F0B140097F1DD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6234AD269F0B140097F1DD /* ContentView.swift */; };
 		EC6234B0269F0B150097F1DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC6234AF269F0B150097F1DD /* Assets.xcassets */; };
@@ -57,6 +58,7 @@
 		EC4244AC26A03FE0004C3DB3 /* LanguageEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageEnum.swift; sourceTree = "<group>"; };
 		EC4244B226A0400D004C3DB3 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		EC4244BA26A04093004C3DB3 /* LocalizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationService.swift; sourceTree = "<group>"; };
+		EC51966926A169D700E24444 /* LanguageSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSettingView.swift; sourceTree = "<group>"; };
 		EC6234A8269F0B140097F1DD /* NoteD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoteD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC6234AB269F0B140097F1DD /* NoteDApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDApp.swift; sourceTree = "<group>"; };
 		EC6234AD269F0B140097F1DD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				EC4243D1269FE290004C3DB3 /* CalendarView.swift */,
 				EC4243DF26A00038004C3DB3 /* SettingView.swift */,
 				EC853C5726A06B1000245B5F /* NoteEditTextView.swift */,
+				EC51966926A169D700E24444 /* LanguageSettingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC853C5826A06B1000245B5F /* NoteEditTextView.swift in Sources */,
+				EC51966A26A169D700E24444 /* LanguageSettingView.swift in Sources */,
 				EC4243F526A010EC004C3DB3 /* TitleFieldView.swift in Sources */,
 				EC4243FD26A01325004C3DB3 /* TextFieldView.swift in Sources */,
 				EC6234B8269F0B150097F1DD /* NoteD.xcdatamodeld in Sources */,
@@ -541,7 +545,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.appStudio.NoteD;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aapStudio.NoteD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -563,7 +567,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.appStudio.NoteD;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aapStudio.NoteD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

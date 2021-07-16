@@ -10,7 +10,6 @@ import CoreData
 
 struct ContentView: View {
     @State var isActive = false
-    @State var isActiveRoot = false
     @State var isActiveSec = false
     @AppStorage("language")
     private var language = LocalizationService.shared.language
@@ -27,30 +26,32 @@ struct ContentView: View {
         NavigationView {
             ZStack(alignment: .bottomTrailing) {
                 if items.isEmpty {
-                    HStack {
-                        Spacer()
-                        
-                        VStack(alignment: .center) {
-                            Image("emptyImage")
-                                .resizable()
-                                .frame(width: 200, height: 160, alignment: .center)
-                            Text("home_emptytext".localized(language))
-                                .font(.system(size: 22, weight: .semibold, design: .rounded))
-                                .padding(.horizontal, 30)
-                                .multilineTextAlignment(.center)
+                    ScrollView(.vertical, showsIndicators: false) {
+                        HStack {
+                            Spacer()
+                            
+                            VStack(alignment: .center) {
+                                Image("emptyImage")
+                                    .resizable()
+                                    .frame(width: 200, height: 160, alignment: .center)
+                                Text("home_emptytext".localized(language))
+                                    .font(.system(size: 22, weight: .semibold, design: .rounded))
+                                    .padding(.horizontal, 30)
+                                    .multilineTextAlignment(.center)
+                                Spacer()
+                            }
+                            .padding(.top, 100)
+                            
                             Spacer()
                         }
-                        .padding(.top, 180)
-                        
-                        Spacer()
                     }
                 } else {
                     List {
                         ForEach(items, id: \.id) { note in
                             NavigationLink(destination: NoteEditTextView(date: note.date ?? Date(), note: note, text: note.title ?? "Title", desc: note.detail ?? ""), tag: note.id ?? UUID(), selection: self.$selection,
-                                label: {
-                                    NoteCellView(items: note)
-                                })
+                                           label: {
+                                            NoteCellView(items: note)
+                                           })
                         }
                         .onDelete(perform: { indexSet in
                             deleteItems(offsets: indexSet)
@@ -78,15 +79,14 @@ struct ContentView: View {
                     .shadow(color: Color("royalBlue").opacity(0.5), radius: 6, x: 0.0, y: 4)
                     .padding()
                 })
-
+                
             }
             
             .toolbar(content: {
                 HStack {
                     EditButton()
                     NavigationLink(
-                        destination: SettingView(isActive: $isActiveRoot),
-                        isActive: $isActiveRoot,
+                        destination: SettingView(),
                         label: {
                             Image(systemName: "gear")
                         })

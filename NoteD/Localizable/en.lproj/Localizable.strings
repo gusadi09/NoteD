@@ -10,3 +10,6 @@
 "shared_titlesetting" = "Setting";
 "home_emptytext" = "You haven't created any notes yet";
 "note_save" = "Save";
+"setting_lang" = "Language";
+"setting_rate" = "Rate It";
+"setting_version" = "Version";

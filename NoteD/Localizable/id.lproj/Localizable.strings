@@ -10,3 +10,6 @@
 "shared_titlesetting" = "Pengaturan";
 "home_emptytext" = "Kamu belum membuat catatan apapun";
 "note_save" = "Simpan";
+"setting_lang" = "Bahasa";
+"setting_rate" = "Beri Nilai";
+"setting_version" = "Versi";
