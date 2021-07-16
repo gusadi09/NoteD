@@ -21,6 +21,7 @@ struct ContentView: View {
         sortDescriptors: [],
         animation: .default)
     private var items: FetchedResults<Note>
+    @State var selection: UUID? = nil
     
     var body: some View {
         NavigationView {
@@ -46,8 +47,7 @@ struct ContentView: View {
                 } else {
                     List {
                         ForEach(items, id: \.id) { note in
-                            NavigationLink(
-                                destination: NoteEditTextView(date: note.date ?? Date(), note: note, text: note.title ?? "Title", desc: note.detail ?? ""),
+                            NavigationLink(destination: NoteEditTextView(date: note.date ?? Date(), note: note, text: note.title ?? "Title", desc: note.detail ?? ""), tag: note.id ?? UUID(), selection: self.$selection,
                                 label: {
                                     NoteCellView(items: note)
                                 })
@@ -62,24 +62,22 @@ struct ContentView: View {
                     
                 }
                 
-                NavigationLink(
-                    destination: NoteTextView(isActive: self.$isActive),
-                    isActive: $isActive,
-                    label: {
-                        HStack {
-                            Image(systemName: "square.and.pencil")
-                                .resizable()
-                                .padding(3)
-                                .frame(width: 40, height: 40, alignment: .center)
-                                .padding()
-                                .foregroundColor(.white)
-                        }
-                        .background(Color("royalBlue"))
-                        .clipShape(Circle())
-                        .shadow(color: Color("royalBlue").opacity(0.5), radius: 6, x: 0.0, y: 4)
-                        .padding()
-                    })
-                    .isDetailLink(true)
+                Button(action: {
+                    addItem()
+                }, label: {
+                    HStack {
+                        Image(systemName: "square.and.pencil")
+                            .resizable()
+                            .padding(3)
+                            .frame(width: 40, height: 40, alignment: .center)
+                            .padding()
+                            .foregroundColor(.white)
+                    }
+                    .background(Color("royalBlue"))
+                    .clipShape(Circle())
+                    .shadow(color: Color("royalBlue").opacity(0.5), radius: 6, x: 0.0, y: 4)
+                    .padding()
+                })
 
             }
             
@@ -99,6 +97,25 @@ struct ContentView: View {
             
         }
         .accentColor(Color("royalBlue"))
+    }
+    
+    func addItem() {
+        withAnimation {
+            let newItem = Note(context: viewContext)
+            newItem.id = UUID()
+            newItem.title = "Title"
+            newItem.date = Date()
+            newItem.detail = ""
+            
+            self.selection = newItem.id
+            
+            do {
+                try viewContext.save()
+            } catch {
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            }
+        }
     }
     
     func deleteItems(offsets: IndexSet) {

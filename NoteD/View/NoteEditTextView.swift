@@ -87,7 +87,7 @@ struct NoteEditTextView: View {
                 updateItems(note: note, title: text, date: date, desc: desc)
                 self.presentationMode.wrappedValue.dismiss()
             }, label: {
-                Text("Save")
+                Text("note_save".localized(language))
             })
         })
         

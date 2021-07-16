@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EC4243CD269FD4EB004C3DB3 /* NoteTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4243CC269FD4EB004C3DB3 /* NoteTextView.swift */; };
 		EC4243D2269FE290004C3DB3 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4243D1269FE290004C3DB3 /* CalendarView.swift */; };
 		EC4243D8269FE39A004C3DB3 /* CustomPresentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4243D7269FE39A004C3DB3 /* CustomPresentViewController.swift */; };
 		EC4243E026A00038004C3DB3 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4243DF26A00038004C3DB3 /* SettingView.swift */; };
@@ -27,6 +26,7 @@
 		EC6234CE269F0B150097F1DD /* NoteDUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6234CD269F0B150097F1DD /* NoteDUITests.swift */; };
 		EC6234DF269F0DCE0097F1DD /* NoteCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6234DE269F0DCE0097F1DD /* NoteCellView.swift */; };
 		EC853C5826A06B1000245B5F /* NoteEditTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC853C5726A06B1000245B5F /* NoteEditTextView.swift */; };
+		ECCB8DBA26A128E0008DFD09 /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCB8DB926A128E0008DFD09 /* UIApplicationExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +47,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		EC4243CC269FD4EB004C3DB3 /* NoteTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTextView.swift; sourceTree = "<group>"; };
 		EC4243D1269FE290004C3DB3 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		EC4243D7269FE39A004C3DB3 /* CustomPresentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPresentViewController.swift; sourceTree = "<group>"; };
 		EC4243DF26A00038004C3DB3 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
@@ -74,6 +73,7 @@
 		EC6234CF269F0B150097F1DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC6234DE269F0DCE0097F1DD /* NoteCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCellView.swift; sourceTree = "<group>"; };
 		EC853C5726A06B1000245B5F /* NoteEditTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteEditTextView.swift; sourceTree = "<group>"; };
+		ECCB8DB926A128E0008DFD09 /* UIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				EC4244B226A0400D004C3DB3 /* StringExtension.swift */,
+				ECCB8DB926A128E0008DFD09 /* UIApplicationExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -196,7 +197,6 @@
 			children = (
 				EC6234AD269F0B140097F1DD /* ContentView.swift */,
 				EC6234DE269F0DCE0097F1DD /* NoteCellView.swift */,
-				EC4243CC269FD4EB004C3DB3 /* NoteTextView.swift */,
 				EC4243D1269FE290004C3DB3 /* CalendarView.swift */,
 				EC4243DF26A00038004C3DB3 /* SettingView.swift */,
 				EC853C5726A06B1000245B5F /* NoteEditTextView.swift */,
@@ -353,7 +353,7 @@
 				EC4243FD26A01325004C3DB3 /* TextFieldView.swift in Sources */,
 				EC6234B8269F0B150097F1DD /* NoteD.xcdatamodeld in Sources */,
 				EC4243D2269FE290004C3DB3 /* CalendarView.swift in Sources */,
-				EC4243CD269FD4EB004C3DB3 /* NoteTextView.swift in Sources */,
+				ECCB8DBA26A128E0008DFD09 /* UIApplicationExtension.swift in Sources */,
 				EC4243E026A00038004C3DB3 /* SettingView.swift in Sources */,
 				EC6234B5269F0B150097F1DD /* Persistence.swift in Sources */,
 				EC6234AE269F0B140097F1DD /* ContentView.swift in Sources */,
