@@ -6,9 +6,13 @@
 //
 
 import SwiftUI
+import SwiftUIGenericDialog
 
 struct NoteEditTextView: View {
     @State var date = Date()
+    
+    @State private var showDialog = false
+    @State private var showDialogFail = false
     
     @AppStorage("language")
     private var language = LocalizationService.shared.language
@@ -74,7 +78,7 @@ struct NoteEditTextView: View {
                 ZStack {
                     
                     TextFieldView(text: $desc, heightToTransmit: $descTextHeight)
-                        .frame(height: textHeight)
+                        .frame(height: descTextHeight)
                         .accentColor(Color("textColor"))
                     
                 }
@@ -84,12 +88,64 @@ struct NoteEditTextView: View {
         }
         .toolbar(content: {
             Button(action: {
+                
                 updateItems(note: note, title: text, date: date, desc: desc)
-                self.presentationMode.wrappedValue.dismiss()
+                
             }, label: {
                 Text("note_save".localized(language))
             })
         })
+        .genericDialog(isShowing: $showDialog) {
+            VStack {
+                Text("notif_titlesucces".localized(language))
+                    .fontWeight(.bold)
+                Divider()
+                Text("notif_bodysucces".localized(language))
+                    .padding(.bottom, 10)
+
+                Button(action: {
+                    showDialog = false
+                    self.presentationMode.wrappedValue.dismiss()
+                }) {
+                    Text("notif_buttonclose".localized(language))
+                        .autocapitalization(.allCharacters)
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                        .padding()
+                        .background(Color("royalBlue"))
+                        .foregroundColor(.white)
+                        .font(.system(size: 16, weight: .semibold, design: .rounded))
+                        .cornerRadius(40)
+                        .frame(width: 140, height: 80, alignment: .center)
+
+                }
+            }.padding(22)
+        }
+        .genericDialog(isShowing: $showDialogFail) {
+            VStack {
+                Text("notif_titlefail".localized(language))
+                    .fontWeight(.bold)
+                Divider()
+                Text("notif_bodyfail".localized(language))
+                    .padding(.bottom, 10)
+                
+                Button(action: {
+                    showDialogFail = false
+                }) {
+                    Text("notif_buttonclose".localized(language))
+                        .autocapitalization(.allCharacters)
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                        .padding()
+                        .background(Color("royalBlue"))
+                        .foregroundColor(.white)
+                        .font(.system(size: 16, weight: .semibold, design: .rounded))
+                        .cornerRadius(40)
+                        .frame(width: 140, height: 80, alignment: .center)
+                        
+                }
+            }.padding(22)
+        }
+        
+        
         
         .navigationBarTitleDisplayMode(.inline)
         
@@ -106,8 +162,9 @@ struct NoteEditTextView: View {
             note.detail = newDesc
             do {
                 try viewContext.save()
+                self.showDialog = true
             } catch {
-                fatalError()
+                self.showDialogFail = true
             }
             
         }

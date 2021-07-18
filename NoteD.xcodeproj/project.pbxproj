@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -25,9 +25,10 @@
 		EC6234B8269F0B150097F1DD /* NoteD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EC6234B6269F0B150097F1DD /* NoteD.xcdatamodeld */; };
 		EC6234C3269F0B150097F1DD /* NoteDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6234C2269F0B150097F1DD /* NoteDTests.swift */; };
 		EC6234CE269F0B150097F1DD /* NoteDUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6234CD269F0B150097F1DD /* NoteDUITests.swift */; };
-		EC6234DF269F0DCE0097F1DD /* NoteCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6234DE269F0DCE0097F1DD /* NoteCellView.swift */; };
 		EC853C5826A06B1000245B5F /* NoteEditTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC853C5726A06B1000245B5F /* NoteEditTextView.swift */; };
 		ECCB8DBA26A128E0008DFD09 /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCB8DB926A128E0008DFD09 /* UIApplicationExtension.swift */; };
+		ECDC9E8E26A4746400B5D57F /* SwiftUIGenericDialog in Frameworks */ = {isa = PBXBuildFile; productRef = ECDC9E8D26A4746400B5D57F /* SwiftUIGenericDialog */; };
+		ECDC9E9626A4753B00B5D57F /* NoteCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDC9E9526A4753B00B5D57F /* NoteCellView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,9 +74,9 @@
 		EC6234C9269F0B150097F1DD /* NoteDUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NoteDUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC6234CD269F0B150097F1DD /* NoteDUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDUITests.swift; sourceTree = "<group>"; };
 		EC6234CF269F0B150097F1DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EC6234DE269F0DCE0097F1DD /* NoteCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCellView.swift; sourceTree = "<group>"; };
 		EC853C5726A06B1000245B5F /* NoteEditTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteEditTextView.swift; sourceTree = "<group>"; };
 		ECCB8DB926A128E0008DFD09 /* UIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
+		ECDC9E9526A4753B00B5D57F /* NoteCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteCellView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECDC9E8E26A4746400B5D57F /* SwiftUIGenericDialog in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,8 +199,8 @@
 		EC6234E3269F0DE30097F1DD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				ECDC9E9526A4753B00B5D57F /* NoteCellView.swift */,
 				EC6234AD269F0B140097F1DD /* ContentView.swift */,
-				EC6234DE269F0DCE0097F1DD /* NoteCellView.swift */,
 				EC4243D1269FE290004C3DB3 /* CalendarView.swift */,
 				EC4243DF26A00038004C3DB3 /* SettingView.swift */,
 				EC853C5726A06B1000245B5F /* NoteEditTextView.swift */,
@@ -233,6 +235,7 @@
 			);
 			name = NoteD;
 			packageProductDependencies = (
+				ECDC9E8D26A4746400B5D57F /* SwiftUIGenericDialog */,
 			);
 			productName = NoteD;
 			productReference = EC6234A8269F0B140097F1DD /* NoteD.app */;
@@ -307,6 +310,7 @@
 			);
 			mainGroup = EC62349F269F0B140097F1DD;
 			packageReferences = (
+				ECDC9E8C26A4746400B5D57F /* XCRemoteSwiftPackageReference "swiftui-generic-dialog" */,
 			);
 			productRefGroup = EC6234A9269F0B140097F1DD /* Products */;
 			projectDirPath = "";
@@ -365,7 +369,7 @@
 				EC4244AD26A03FE0004C3DB3 /* LanguageEnum.swift in Sources */,
 				EC4243D8269FE39A004C3DB3 /* CustomPresentViewController.swift in Sources */,
 				EC4244BB26A04093004C3DB3 /* LocalizationService.swift in Sources */,
-				EC6234DF269F0DCE0097F1DD /* NoteCellView.swift in Sources */,
+				ECDC9E9626A4753B00B5D57F /* NoteCellView.swift in Sources */,
 				EC6234AC269F0B140097F1DD /* NoteDApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -536,6 +540,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"NoteD/Preview Content\"";
 				DEVELOPMENT_TEAM = 6M5M727687;
 				ENABLE_PREVIEWS = YES;
@@ -545,6 +550,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.aapStudio.NoteD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -558,6 +564,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"NoteD/Preview Content\"";
 				DEVELOPMENT_TEAM = 6M5M727687;
 				ENABLE_PREVIEWS = YES;
@@ -567,6 +574,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.aapStudio.NoteD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -698,6 +706,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		ECDC9E8C26A4746400B5D57F /* XCRemoteSwiftPackageReference "swiftui-generic-dialog" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/globulus/swiftui-generic-dialog.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		ECDC9E8D26A4746400B5D57F /* SwiftUIGenericDialog */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ECDC9E8C26A4746400B5D57F /* XCRemoteSwiftPackageReference "swiftui-generic-dialog" */;
+			productName = SwiftUIGenericDialog;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		EC6234B6269F0B150097F1DD /* NoteD.xcdatamodeld */ = {

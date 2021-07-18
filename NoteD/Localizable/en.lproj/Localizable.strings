@@ -13,3 +13,8 @@
 "setting_lang" = "Language";
 "setting_rate" = "Rate It";
 "setting_version" = "Version";
+"notif_titlesucces" = "Sucess!";
+"notif_titlefail" = "Failed!";
+"notif_bodysucces" = "Your note is sucessfully saved!";
+"notif_bodyfail" = "Oops... your note failed to save :(";
+"notif_buttonclose" = "Close";

@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import SwiftUIGenericDialog
 
 struct NoteCellView: View {
     @ObservedObject var items: Note
+    
+    
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 8) {

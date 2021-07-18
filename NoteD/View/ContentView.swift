@@ -7,12 +7,15 @@
 
 import SwiftUI
 import CoreData
+import SwiftUIGenericDialog
 
 struct ContentView: View {
     @State var isActive = false
     @State var isActiveSec = false
     @AppStorage("language")
     private var language = LocalizationService.shared.language
+    
+    
     
     @Environment(\.managedObjectContext) private var viewContext
     
@@ -60,7 +63,6 @@ struct ContentView: View {
                         
                     }
                     .listStyle(InsetGroupedListStyle())
-                    
                 }
                 
                 Button(action: {

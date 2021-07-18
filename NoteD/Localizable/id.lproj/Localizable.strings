@@ -13,3 +13,8 @@
 "setting_lang" = "Bahasa";
 "setting_rate" = "Beri Nilai";
 "setting_version" = "Versi";
+"notif_titlesucces" = "Berhasil!";
+"notif_titlefail" = "Gagal!";
+"notif_bodysucces" = "Catatan kamu berhasil disimpan!";
+"notif_bodyfail" = "Maaf catatan kamu gagal tersimpan :(";
+"notif_buttonclose" = "Tutup";
