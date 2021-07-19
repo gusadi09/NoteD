@@ -44,7 +44,9 @@ struct SettingView: View {
             .padding()
             
             Button {
-                if let windowScene = UIApplication.shared.windows.first?.windowScene { SKStoreReviewController.requestReview(in: windowScene) }
+                if let scene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
+                    SKStoreReviewController.requestReview(in: scene)
+                }
             } label: {
                 HStack {
                     Image(systemName: "star.fill")

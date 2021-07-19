@@ -99,9 +99,11 @@ struct NoteEditTextView: View {
             VStack {
                 Text("notif_titlesucces".localized(language))
                     .fontWeight(.bold)
+                    .foregroundColor(.black)
                 Divider()
                 Text("notif_bodysucces".localized(language))
                     .padding(.bottom, 10)
+                    .foregroundColor(.black)
 
                 Button(action: {
                     showDialog = false
@@ -124,9 +126,11 @@ struct NoteEditTextView: View {
             VStack {
                 Text("notif_titlefail".localized(language))
                     .fontWeight(.bold)
+                    .foregroundColor(.black)
                 Divider()
                 Text("notif_bodyfail".localized(language))
                     .padding(.bottom, 10)
+                    .foregroundColor(.black)
                 
                 Button(action: {
                     showDialogFail = false

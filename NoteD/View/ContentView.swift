@@ -87,6 +87,7 @@ struct ContentView: View {
             .toolbar(content: {
                 HStack {
                     EditButton()
+                        .padding(.horizontal)
                     NavigationLink(
                         destination: SettingView(),
                         label: {
