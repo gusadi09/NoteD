@@ -86,8 +86,10 @@ struct ContentView: View {
             
             .toolbar(content: {
                 HStack {
+                    #if os(iOS)
                     EditButton()
                         .padding(.horizontal)
+                    #endif
                     NavigationLink(
                         destination: SettingView(),
                         label: {
